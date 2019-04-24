@@ -13,9 +13,24 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path
 
+# Ja delaju import pages.view a nie pages chtoby nie imet problem s odinakowymi nazwanijami viewes fajlow
+from pages.views import home_view, contact_view, social_view,galery_view,about_view
+from products.views import product_detail_view
+from products.views import product_create_view
+
 urlpatterns = [
+    
+	
+    path('', home_view, name='home'),
+    path('contact/', contact_view, name='contact'),
+    path('home/', home_view, name='home'),
+    path('social/', social_view, name='social'),
+    path('create/', product_create_view, name='create'),
+    path('product/', product_detail_view, name='product'),
+    path('about/', about_view, name='about'),
     path('admin/', admin.site.urls),
 ]

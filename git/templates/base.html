@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+<head>
+	<title>My django Test Project</title>
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Wired Elements Example</title>
+    <script src="https://unpkg.com/@webcomponents/webcomponentsjs@latest/webcomponents-loader.js"></script>
+    <script src="https://unpkg.com/wired-elements@latest/dist/wired-elements.bundled.js"></script>
+    <style>
+      body {
+        font-family: system-ui, sans-serif;
+      }
+    </style>
+</head>
+<body>
+	<wired-input placeholder="Your name"></wired-input>
+    <wired-button>Submit</wired-button>
+
+    <script>
+      const button = document.querySelector("wired-button");
+      const input = document.querySelector("wired-input");
+      button.addEventListener("click", () => {
+        const name = input.value.trim();
+        window.alert(`Hello ${name}!`);
+      });
+      console.log("argh!");
+    </script>
+	{% include 'navbar.html' %}
+	{% block content %}
+	replace me
+	{% endblock%}
+
+</body>
+</html>
